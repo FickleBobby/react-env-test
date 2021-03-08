@@ -1,0 +1,22 @@
+---
+jobs:
+    unit-tests:
+        name: 'Run Jest unit tests'
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Setup Node.js'
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+            - name: 'Checkout repository'
+              uses: actions/checkout@v2
+            - name: 'Install dependencies'
+              run: 'npm install'
+            - name: 'Run test command'
+              run: 'npm run test'
+name: 'Deploy to Amazon ECS'
+true:
+    push:
+        branches:
+            - master
+    workflow_dispatch: ~
